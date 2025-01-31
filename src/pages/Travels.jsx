@@ -16,7 +16,7 @@ export default function Travels() {
                         </div>
                         <div className="my-1">
                             <h3> {trip.destination}</h3>
-                            <Link to="/travelInfo" className="btn btn-primary" >
+                            <Link to={`/${trip.id}`} className="btn btn-primary" >
                                 Vai al viaggio
                             </Link>
                         </div>
