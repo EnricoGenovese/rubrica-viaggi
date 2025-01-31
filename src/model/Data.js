@@ -159,4 +159,4 @@ const trips = [
   },
 ];
 
-export default { travelers, trips };
+export { travelers, trips };
