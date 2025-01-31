@@ -4,17 +4,17 @@ import { Link } from "react-router-dom"
 export default function Travels() {
     return (
         <>
-            <div className="container">
+            <div className="container mt-5">
                 {trips.map((trip) => (
-                    <div className="my-5" key={trip.id} >
-                        <div className="my-1">
+                    <div className="my-5 bg-light p-1" key={trip.id} >
+                        <div className="my-2">
                             <h2>{trip.title}</h2>
                         </div>
-                        <div className="d-flex flex-direction-column justify-content-around my-1">
+                        <div className="d-flex flex-direction-column justify-content-around my-2">
                             <p>Data della partenza: {trip.startDate}</p>
                             <p>Data di ritorno: {trip.endDate}</p>
                         </div>
-                        <div className="my-1">
+                        <div className="my-2">
                             <h3> {trip.destination}</h3>
                             <Link to={`/${trip.id}`} className="btn btn-primary" >
                                 Vai al viaggio

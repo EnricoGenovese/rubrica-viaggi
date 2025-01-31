@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Travels from "./pages/Travels";
 import Travel from "./pages/Travel";
 import DefaultLayout from "./components/DefaultLayout";
-// import TravellerInfo from "./pages/TravellerInfo";
+import TravelerInfo from "./pages/TravelerInfo";
 // import NotFound from "./pages/NotFound";
 import { GlobalProvider } from "./context/GlobalContext"
 
@@ -15,11 +15,12 @@ function App() {
           <Route Component={DefaultLayout}>
             <Route path="/" >
               <Route index Component={Travels} />
-              <Route path=":id" Component={Travel} >
-                {/* <Route path="/travellerInfo" Component={TravellerInfo} /> */}
-              </Route>
+              <Route exact path=":id" Component={Travel} />
+              <Route path="/:id/:id" Component={TravelerInfo} />
             </Route>
           </Route>
+
+
           {/* <Route path="*" Component={NotFound} /> */}
         </Routes>
         {/* </GlobalProvider> */}

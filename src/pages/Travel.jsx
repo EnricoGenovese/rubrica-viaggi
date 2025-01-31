@@ -1,14 +1,10 @@
 import React from "react";
 import { trips } from "../model/Data.js";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function Travel() {
-  console.log(trips);
   const { id } = useParams();
-  console.log(id);
-
   const currentTrip = trips.find((trip) => trip.id === parseInt(id));
-  console.log(currentTrip);
 
   return (
     <div className="container mt-5">
@@ -26,12 +22,15 @@ export default function Travel() {
           <h3>Viaggiatori:</h3>
           <ul className="list-group">
             {currentTrip.travelers.map((traveler) => (
-              <li key={traveler.id} className="list-group-item">
+              <li key={traveler.id} className="list-group-item d-flex justify-content-between">
                 <div>
                   <strong>
                     {traveler.name} {traveler.surname}
                   </strong>
                 </div>
+                <Link to={`${traveler.id}`} className="btn btn-primary" traveler={traveler} >
+                  Vai al viaggio
+                </Link>
               </li>
             ))}
           </ul>
