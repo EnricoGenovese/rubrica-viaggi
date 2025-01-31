@@ -29,7 +29,7 @@ export default function Travel() {
                   </strong>
                 </div>
                 <Link to={`${traveler.id}`} className="btn btn-primary" traveler={traveler} >
-                  Vai al viaggio
+                  Dettagli Viaggiatore
                 </Link>
               </li>
             ))}
