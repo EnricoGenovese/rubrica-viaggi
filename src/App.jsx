@@ -4,23 +4,23 @@ import Travel from "./pages/Travel";
 import DefaultLayout from "./components/DefaultLayout";
 // import TravellerInfo from "./pages/TravellerInfo";
 // import NotFound from "./pages/NotFound";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { GlobalProvider } from "./context/GlobalContext"
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        {/* <GlobalProvider> */}
-        <Routes>
-          <Route Component={DefaultLayout}>
-            <Route path="/" Component={Travels}>
-              {/* <Route path="/travellerInfo" Component={TravellerInfo} /> */}
+        <GlobalProvider>
+          <Routes>
+            <Route Component={DefaultLayout}>
+              <Route path="/" Component={Travels}>
+                {/* <Route path="/travellerInfo" Component={TravellerInfo} /> */}
+              </Route>
+              <Route path="/:id" Component={Travel} />
             </Route>
-            <Route path="/:id" Component={Travel} />
-          </Route>
-          {/* <Route path="*" Component={NotFound} /> */}
-        </Routes>
-        {/* </GlobalProvider> */}
+            {/* <Route path="*" Component={NotFound} /> */}
+          </Routes>
+        </GlobalProvider>
       </BrowserRouter>
     </>
   );
