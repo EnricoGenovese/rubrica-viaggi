@@ -13,10 +13,12 @@ function App() {
         {/* <GlobalProvider> */}
         <Routes>
           <Route Component={DefaultLayout}>
-            <Route path="/" Component={Travels}>
-              {/* <Route path="/travellerInfo" Component={TravellerInfo} /> */}
+            <Route path="/" >
+              <Route index Component={Travels} />
+              <Route path=":id" Component={Travel} >
+                {/* <Route path="/travellerInfo" Component={TravellerInfo} /> */}
+              </Route>
             </Route>
-            <Route path="/:id" Component={Travel} />
           </Route>
           {/* <Route path="*" Component={NotFound} /> */}
         </Routes>

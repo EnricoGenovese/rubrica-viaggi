@@ -1,5 +1,5 @@
 import React from "react";
-import { trips } from "../model/data";
+import { trips } from "../model/Data.js";
 import { useParams } from "react-router-dom";
 
 export default function Travel() {
@@ -32,8 +32,6 @@ export default function Travel() {
                     {traveler.name} {traveler.surname}
                   </strong>
                 </div>
-                <div>Email: {traveler.email}</div>
-                <div>Telefono: {traveler.phoneNumber}</div>
               </li>
             ))}
           </ul>
