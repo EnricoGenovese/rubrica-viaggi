@@ -1,6 +1,8 @@
+import HeaderStyle from "../style/Header.module.css";
+
 function Header() {
     return (
-        <header>
+        <header className={HeaderStyle.sticky}>
 
 
 
