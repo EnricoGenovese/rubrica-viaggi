@@ -4,6 +4,7 @@ import Travel from "./pages/Travel";
 import TravellerInfo from "./pages/TravellerInfo";
 import NotFound from "./pages/NotFound";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import Travel from "./pages/Travel";
 
 function App() {
   return (
