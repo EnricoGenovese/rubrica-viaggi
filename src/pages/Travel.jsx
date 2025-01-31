@@ -1,10 +1,15 @@
 import React from "react";
 import { trips } from "../model/data";
-import { useParams } from "react";
+import { useParams } from "react-router-dom";
 
 export default function Travel() {
+  console.log(trips);
   const { id } = useParams();
+  console.log(id);
+
   const currentTrip = trips.find((trip) => trip.id === id);
+  console.log(currentTrip);
+
   return (
     <div className="container mt-5">
       <h1 className="text-center mb-4">Dettagli del Viaggio</h1>
