@@ -1,6 +1,7 @@
 import React from "react";
 import { trips } from "../model/data";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Travel() {
   console.log(trips);
@@ -27,13 +28,17 @@ export default function Travel() {
           <ul className="list-group">
             {currentTrip.travelers.map((traveler) => (
               <li key={traveler.id} className="list-group-item">
-                <div>
+                <div className="d-flex justify-content-between ">
                   <strong>
                     {traveler.name} {traveler.surname}
                   </strong>
+                  <Link
+                    to={`/travellerInfo/${traveler.id}`}
+                    className="btn btn-primary"
+                  >
+                    Dettagli
+                  </Link>
                 </div>
-                <div>Email: {traveler.email}</div>
-                <div>Telefono: {traveler.phoneNumber}</div>
               </li>
             ))}
           </ul>
