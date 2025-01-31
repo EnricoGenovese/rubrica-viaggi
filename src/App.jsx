@@ -1,18 +1,29 @@
-import { useState } from "react";
-import "./App.css";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Travels from "./pages/Travels";
 import Travel from "./pages/Travel";
+import DefaultLayout from "./components/DefaultLayout";
+// import TravellerInfo from "./pages/TravellerInfo";
+// import NotFound from "./pages/NotFound";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 
 function App() {
   return (
     <>
-      <Header />
-      <Travel></Travel>
-      <Main />
-      <Footer />
+      <BrowserRouter>
+        {/* <GlobalProvider> */}
+        <Routes>
+          <Route Component={DefaultLayout} >
+            <Route path="/" Component={Travels}>
+              <Route path=":id" element={Travel} />
+              {/* <Route path="/travellerInfo" Component={TravellerInfo} /> */}
+
+            </Route>
+          </Route>
+          {/* <Route path="*" Component={NotFound} /> */}
+        </Routes>
+        {/* </GlobalProvider> */}
+      </BrowserRouter>
     </>
   );
 }
