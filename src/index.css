@@ -1,0 +1,8 @@
+main {
+    background-image: url("https://img.freepik.com/vettori-gratuito/sfondo-di-viaggio-realistico-con-elementi_52683-77784.jpg?t=st=1738342548~exp=1738346148~hmac=bfd70ba99fe82156957417995776845c3577e54668516725d99ab782d39ebb0e&w=996");
+
+    background-size: cover;
+    height: calc(100vh - 50px);
+    /* margin-top: 50px; */
+    overflow-y: hidden;
+}
