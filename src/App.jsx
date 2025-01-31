@@ -6,19 +6,17 @@ import DefaultLayout from "./components/DefaultLayout";
 // import NotFound from "./pages/NotFound";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-
 function App() {
   return (
     <>
       <BrowserRouter>
         {/* <GlobalProvider> */}
         <Routes>
-          <Route Component={DefaultLayout} >
+          <Route Component={DefaultLayout}>
             <Route path="/" Component={Travels}>
-              <Route path=":id" element={Travel} />
               {/* <Route path="/travellerInfo" Component={TravellerInfo} /> */}
-
             </Route>
+            <Route path="/:id" Component={Travel} />
           </Route>
           {/* <Route path="*" Component={NotFound} /> */}
         </Routes>

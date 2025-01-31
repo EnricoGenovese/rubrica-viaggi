@@ -7,7 +7,7 @@ export default function Travel() {
   const { id } = useParams();
   console.log(id);
 
-  const currentTrip = trips.find((trip) => trip.id === id);
+  const currentTrip = trips.find((trip) => trip.id === parseInt(id));
   console.log(currentTrip);
 
   return (
@@ -42,5 +42,3 @@ export default function Travel() {
     </div>
   );
 }
-
-
