@@ -1,16 +1,27 @@
-import { useState } from "react";
-import "./App.css";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Travels from "./pages/Travels";
+import Travel from "./pages/Travel";
+import TravellerInfo from "./pages/TravellerInfo";
+import NotFound from "./pages/NotFound";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 function App() {
   return (
     <>
-      <Header />
-      <Main />
-      <Footer />
+      <BrowserRouter>
+        <GlobalProvider>
+          <Routes>
+            <Route Component={DefaultLayout} >
+              <Route path="/" Component={Travels}>
+                <Route path="/travelInfo" Component={Travel}>
+                  <Route path="/travellerInfo" Component={TravellerInfo} />
+                </Route>
+              </Route>
+            </Route>
+            <Route path="*" Component={NotFound} />
+          </Routes>
+        </GlobalProvider>
+      </BrowserRouter>
     </>
   );
 }
