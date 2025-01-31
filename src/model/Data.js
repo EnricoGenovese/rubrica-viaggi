@@ -143,6 +143,7 @@ const travelers = [
 
 const trips = [
   {
+    id: 1,
     title: "Tour della Toscana",
     startDate: "2025-06-10",
     endDate: "2025-06-20",
@@ -150,6 +151,7 @@ const trips = [
     travelers: [travelers[0], travelers[1]],
   },
   {
+    id: 2,
     title: "Vacanza a Parigi",
     startDate: "2025-07-05",
     endDate: "2025-07-12",
@@ -157,6 +159,7 @@ const trips = [
     travelers: [travelers[2], travelers[3]],
   },
   {
+    id: 3,
     title: "Avventura in Giappone",
     startDate: "2025-09-15",
     endDate: "2025-09-30",
@@ -164,6 +167,7 @@ const trips = [
     travelers: [travelers[4], travelers[5], travelers[6]],
   },
   {
+    id: 4,
     title: "Safari in Kenya",
     startDate: "2025-11-01",
     endDate: "2025-11-10",
@@ -171,6 +175,7 @@ const trips = [
     travelers: [travelers[7], travelers[8], travelers[9]],
   },
   {
+    id: 5,
     title: "Esplorazione dell'Australia",
     startDate: "2025-12-15",
     endDate: "2026-01-05",
