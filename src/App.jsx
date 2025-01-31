@@ -10,17 +10,19 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <GlobalProvider>
-          <Routes>
-            <Route Component={DefaultLayout}>
-              <Route path="/" Component={Travels}>
+        {/* <GlobalProvider> */}
+        <Routes>
+          <Route Component={DefaultLayout}>
+            <Route path="/" >
+              <Route index Component={Travels} />
+              <Route path=":id" Component={Travel} >
                 {/* <Route path="/travellerInfo" Component={TravellerInfo} /> */}
               </Route>
-              <Route path="/:id" Component={Travel} />
             </Route>
-            {/* <Route path="*" Component={NotFound} /> */}
-          </Routes>
-        </GlobalProvider>
+          </Route>
+          {/* <Route path="*" Component={NotFound} /> */}
+        </Routes>
+        {/* </GlobalProvider> */}
       </BrowserRouter>
     </>
   );
