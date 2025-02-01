@@ -12,14 +12,14 @@ export default function TravelerInfo() {
     console.log("trip: ", currentTripId, "traveler: ", traveler.id)
     return (
         <div className="container mt-5">
-            <div className="my-5 bg-light h4-1">
+            <div className="my-5 bg-light p-4">
                 <div key={traveler.id} className="list-grouh4-item d-flex justify-content-between">
                     <div className="my-2">
                         <h4>{traveler.name}</h4>
                         <h4>{traveler.surname}</h4>
                     </div>
                 </div>
-                <div>
+                <div className="my-5">
                     <h4 className="my-1">Indirizzo e-mail: <strong>{traveler.email}</strong></h4>
                     <h4 className="my-1">Numero di telefono: <strong>{traveler.phoneNumber}</strong></h4>
                 </div>
