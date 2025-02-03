@@ -29,29 +29,29 @@ export default function TravelerInfo() {
           <h3 className="text-center w-100 text-white">{traveler.name} {traveler.surname}</h3>
 
         </div>
-        <div className="d-flex justify-content-around text-white pt-3">
-          <div className="">
-            <h4 className="">Indirizzo e-mail:</h4>
+        <div className="d-flex flex-column border-md-bottom flex-md-row justify-content-md-around text-white pt-3">
+          <div className="border-bottom border-light py-3">
+            <h4 className="pb-2">Indirizzo e-mail:</h4>
             <h4 className="">
               <strong>{traveler.email}</strong>
             </h4>
           </div>
-          <div className="">
-            <h4 className="">Numero di telefono:</h4>
+          <div className="border-bottom py-3">
+            <h4 className="pb-1">Numero di telefono:</h4>
             <h4 className="">
               <strong>{traveler.phoneNumber}</strong>
             </h4>
           </div>
 
-          <div className="">
-            <h4 className="">Codice Fiscale:</h4>
+          <div className="border-bottom border-light py-3">
+            <h4 className="pb-2">Codice Fiscale:</h4>
             <h4 className="">
               <strong>{traveler.ssn}</strong>
             </h4>
           </div>
         </div>
 
-        <div className="d-flex justify-content-end  gap-3 pt-5">
+        <div className="d-flex justify-content-center justify-content-md-end  gap-3 pt-5">
           <Link to={`/`} className="btn btn-dark btn-sm">
             Torna alla Home Page
           </Link>
