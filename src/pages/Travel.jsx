@@ -39,7 +39,7 @@ export default function Travel() {
 
               const nameSurname = traveler.name + " " + traveler.surname;
               const surnameName = traveler.surname + " " + traveler.name;
-              console.log(nameSurname)
+
               return (
 
                 (nameSurname.toLowerCase().trim().includes(query.toLowerCase().trim()) || surnameName.toLowerCase().trim().includes(query.toLowerCase().trim()) || !query) &&
