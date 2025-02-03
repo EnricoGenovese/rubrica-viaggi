@@ -1,82 +1,90 @@
-import React from "react";
-import { trips, travelers } from "../model/Data.js";
+import React, { useState } from "react";
+import { trips } from "../model/Data.js";
 import { Link, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 import Searchbar from "../components/Searchbar.jsx";
 
 export default function Travel() {
   const { id } = useParams();
-
   const currentTrip = trips.find((trip) => trip.id === parseInt(id));
+
+  if (!currentTrip) {
+    return (
+      <p className="text-center mt-5 text-danger fs-1">Viaggio non trovato.</p>
+    );
+  }
+
   const [query, setQuery] = useState("");
-  const { name, surname } = travelers;
+
   function filterTravellers(e) {
     setQuery(e.target.value);
   }
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-4">Dettagli del Viaggio</h1>
+      <h1 className="text-center mb-4 fw-bold ">Dettagli del Viaggio</h1>
       <div className="card shadow-sm">
         <div
           className="card-body"
           style={{
+            position: "relative",
             backgroundImage: currentTrip.bg,
             backgroundSize: "cover",
             backgroundPosition: "center",
             color: "white",
             height: "80vh",
-            opacity: "0.8",
           }}
         >
-          <h2 className="card-title">{currentTrip.title}</h2>
-          <p className="card-text">
-            <strong>Data di Partenza:</strong> {currentTrip.startDate}
-            <br />
-            <strong>Data di Fine:</strong> {currentTrip.endDate}
-            <br />
-            <strong>Destinazione:</strong> {currentTrip.destination}
-          </p>
-          <div className=" py-3 d-flex justify-content-between">
-            <h3>Viaggiatori:</h3>
-            <Searchbar handleSearch={filterTravellers} />
-          </div>
-          <ul className="list-group">
-            {currentTrip.travelers.map((traveler) => {
-              const nameSurname = traveler.name + " " + traveler.surname;
-              const surnameName = traveler.surname + " " + traveler.name;
-              console.log(nameSurname);
-              return (
-                (nameSurname
-                  .toLowerCase()
-                  .trim()
-                  .includes(query.toLowerCase().trim()) ||
-                  surnameName
-                    .toLowerCase()
-                    .trim()
-                    .includes(query.toLowerCase().trim()) ||
-                  !query) && (
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              zIndex: 22,
+            }}
+          ></div>
+          <div style={{ position: "relative", zIndex: 222 }}>
+            <h2 className="card-title fw-bold">{currentTrip.title}</h2>
+            <p className="card-text">
+              <strong>Data di Partenza:</strong> {currentTrip.startDate}
+              <br />
+              <strong>Data di Fine:</strong> {currentTrip.endDate}
+              <br />
+              <strong>Destinazione:</strong> {currentTrip.destination}
+            </p>
+            <div className="py-3 d-flex justify-content-between">
+              <h3>Viaggiatori:</h3>
+              <Searchbar handleSearch={filterTravellers} />
+            </div>
+            <ul className="list-group">
+              {currentTrip.travelers
+                .filter((traveler) => {
+                  const nameSurname = traveler.name + " " + traveler.surname;
+                  const surnameName = traveler.surname + " " + traveler.name;
+                  return (
+                    nameSurname.toLowerCase().includes(query.toLowerCase()) ||
+                    surnameName.toLowerCase().includes(query.toLowerCase())
+                  );
+                })
+                .map((traveler) => (
                   <li
                     key={traveler.id}
-                    className="list-group-item d-flex justify-content-between"
+                    className="d-flex justify-content-between"
                   >
                     <div>
                       <strong>
                         {traveler.name} {traveler.surname}
                       </strong>
                     </div>
-                    <Link
-                      to={`${traveler.id}`}
-                      className="btn btn-secondary"
-                      traveler={traveler}
-                    >
+                    <Link to={`${traveler.id}`} className="btn btn-dark btn-sm">
                       Dettagli Viaggiatore
                     </Link>
                   </li>
-                )
-              );
-            })}
-          </ul>
+                ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
