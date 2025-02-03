@@ -1,7 +1,8 @@
 import { trips } from "../model/Data.js";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export default function Travels() {
+
     let today = new Date();
     const dd = today.getDate();
     const mm = today.getMonth() + 1;
@@ -18,7 +19,12 @@ export default function Travels() {
                     <h2>Viaggi in corso: </h2>
                 </div>
                 {ongoingTrips.map((trip) => (
-                    <div className="my-5 bg-light p-1" key={trip.id} >
+                    <div className="my-5 bg-light p-1" key={trip.id} style={{
+              backgroundImage: trip.bg,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              color: "white",
+            }}>
                         <div className="my-2">
                             <h2>{trip.title}</h2>
                         </div>
@@ -38,7 +44,12 @@ export default function Travels() {
                     <h2>Viaggi futuri: </h2>
                 </div>
                 {futureTrips.map((trip) => (
-                    <div className="my-5 bg-light p-1" key={trip.id} >
+                    <div className="my-5 bg-light p-1" key={trip.id} style={{
+              backgroundImage: trip.bg,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              color: "white",
+            }}>
                         <div className="my-2">
                             <h2>{trip.title}</h2>
                         </div>
@@ -54,7 +65,43 @@ export default function Travels() {
                         </div>
                     </div>
                 ))}
+
             </div>
-        </>
-    )
+            <div className="d-flex flex-direction-column justify-content-around my-2">
+              <p
+                style={{
+                  backgroundColor: "rgba(0, 0, 0, 0.7)",
+                  width: "fit-content",
+                }}
+              >
+                Data della partenza: {trip.startDate}
+              </p>
+              <p
+                style={{
+                  backgroundColor: "rgba(0, 0, 0, 0.7)",
+                  width: "fit-content",
+                }}
+              >
+                Data di ritorno: {trip.endDate}
+              </p>
+            </div>
+            <div className="my-2">
+              <h3
+                style={{
+                  backgroundColor: "rgba(0, 0, 0, 0.7)",
+                  width: "fit-content",
+                }}
+              >
+                {" "}
+                {trip.destination}
+              </h3>
+              <Link to={`/${trip.id}`} className="btn btn-primary">
+                Vai al viaggio
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
 }

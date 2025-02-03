@@ -173,6 +173,7 @@ const trips = [
     endDate: "2025-02-05",
     destination: "Toscana, Italia",
     travelers: [travelers[0], travelers[1]],
+    bg: `url('https://plus.unsplash.com/premium_photo-1675970835839-261d62505450?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
   },
   {
     id: 2,
@@ -181,6 +182,7 @@ const trips = [
     endDate: "2025-07-12",
     destination: "Parigi, Francia",
     travelers: [travelers[2], travelers[3]],
+    bg: "url(https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
   },
   {
     id: 3,
@@ -189,6 +191,7 @@ const trips = [
     endDate: "2025-09-30",
     destination: "Tokyo, Giappone",
     travelers: [travelers[4], travelers[5], travelers[6]],
+    bg: "url(https://plus.unsplash.com/premium_photo-1661902398022-762e88ff3f82?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
   },
   {
     id: 4,
@@ -197,6 +200,7 @@ const trips = [
     endDate: "2025-11-10",
     destination: "Nairobi, Kenya",
     travelers: [travelers[7], travelers[8], travelers[9]],
+    bg: "url(https://plus.unsplash.com/premium_photo-1664304370557-233bccc0ac85?q=80&w=2079&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
   },
   {
     id: 5,
@@ -205,6 +209,7 @@ const trips = [
     endDate: "2026-01-05",
     destination: "Sydney, Australia",
     travelers: [travelers[10], travelers[11], travelers[12], travelers[13]],
+    bg: "url(https://images.unsplash.com/photo-1524820197278-540916411e20?q=80&w=2095&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
   },
 
 ];
