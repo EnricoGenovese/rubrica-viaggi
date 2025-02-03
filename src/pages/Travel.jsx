@@ -50,7 +50,7 @@ export default function Travel() {
           ></div>
 
           {/* Contenuto sopra overlay */}
-          <div style={{ position: "relative", zIndex: 2 }}>
+          <div style={{ position: "relative", zIndex: 2, padding: "10px" }}>
             <h2 className="card-title fw-bold">{currentTrip.title}</h2>
             <p className="card-text">
               <strong>Data di Partenza:</strong> {currentTrip.startDate}
@@ -59,12 +59,13 @@ export default function Travel() {
               <br />
               <strong>Destinazione:</strong> {currentTrip.destination}
             </p>
-            <h3>Viaggiatori:</h3>
             <div className="pb-3">
 
               <Searchbar handleSearch={filterTravellers} />
             </div>
-            <ul>
+            <h3>Viaggiatori:</h3>
+
+            <ul className="list-unstyled">
               {currentTrip.travelers
                 .filter((traveler) => {
                   const nameSurname = traveler.name + " " + traveler.surname;
@@ -78,7 +79,8 @@ export default function Travel() {
                 .map((traveler) => (
                   <li
                     key={traveler.id}
-                    className="list-group-item d-flex justify-content-between align-items-center py-3"
+                    className="list-group-item d-flex justify-content-between align-items-center py-3 "
+                    style={{ borderBottom: "1px solid white" }}
                   >
                     <strong>
                       {traveler.name} {traveler.surname}

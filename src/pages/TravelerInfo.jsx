@@ -23,41 +23,40 @@ export default function TravelerInfo() {
       >
         <div
           key={traveler.id}
-          className="list-grouh4-item d-flex justify-content-between"
+          className="list-group-item d-flex justify-content-between"
         >
-          <div className="my-2 text-white">
-            <h3>{traveler.name}</h3>
-            <h3>{traveler.surname}</h3>
-          </div>
+
+          <h3 className="text-center w-100 text-white">{traveler.name} {traveler.surname}</h3>
+
         </div>
-        <div className="d-flex flex-column text-white">
-          <div className="d-flex justify-content-between">
-            <h4 className="my-1">Indirizzo e-mail:</h4>
-            <h4 className="my-1">
+        <div className="d-flex justify-content-around text-white pt-3">
+          <div className="">
+            <h4 className="">Indirizzo e-mail:</h4>
+            <h4 className="">
               <strong>{traveler.email}</strong>
             </h4>
           </div>
-          <div className="d-flex justify-content-between">
-            <h4 className="my-1">Numero di telefono:</h4>
-            <h4 className="my-1">
+          <div className="">
+            <h4 className="">Numero di telefono:</h4>
+            <h4 className="">
               <strong>{traveler.phoneNumber}</strong>
             </h4>
           </div>
 
-          <div className="d-flex justify-content-between">
-            <h4 className="my-1">Codice Fiscale:</h4>
-            <h4 className="my-1">
+          <div className="">
+            <h4 className="">Codice Fiscale:</h4>
+            <h4 className="">
               <strong>{traveler.ssn}</strong>
             </h4>
           </div>
         </div>
 
-        <div className="d-flex justify-content-around">
+        <div className="d-flex justify-content-end gap-3 pt-5">
           <Link to={`/`} className="btn btn-dark btn-sm">
-            Torna ai viaggi
+            Torna alla Home Page
           </Link>
           <Link to={`/${currentTripId}`} className="btn btn-dark btn-sm">
-            Torna alla lista Viaggiatori
+            Torna al viaggio
           </Link>
         </div>
       </div>

@@ -19,10 +19,10 @@ export default function AllTravelers() {
                 </Link> */}
                 <Searchbar handleSearch={filterTravellers} />
             </div>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center" >
 
 
-                <ul className="list-group w-50">
+                <ul className="list-group w-50" >
                     {travelers.map((traveler, index) => {
                         const nameSurname = traveler.name + " " + traveler.surname;
                         const surnameName = traveler.surname + " " + traveler.name;
@@ -38,7 +38,8 @@ export default function AllTravelers() {
                                 !query) && traveler.name && (
                                 <li
                                     key={traveler.id}
-                                    className="list-group-item d-flex justify-content-between align-items-center bg-light"
+                                    className="list-group-item d-flex justify-content-between align-items-center text-white p-3"
+                                    style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
                                 >
                                     <div className="d-flex flex-column flex-md-row w-100">
                                         <div className="w-25">
@@ -53,7 +54,7 @@ export default function AllTravelers() {
                                     <Link
                                         to={`${traveler.id}`}
                                         className="btn btn-dark btn-sm"
-                                        style={{ backgroundColor: "#3FBCE7", height: "30px" }}
+                                        style={{ height: "30px" }}
                                         traveler={traveler}
                                     >
                                         Dettagli
