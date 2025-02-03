@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { travelers } from "../model/Data";
 import Searchbar from "../components/Searchbar";
 
+
 export default function AllTravelers() {
     const [query, setQuery] = useState("");
 
@@ -11,53 +12,58 @@ export default function AllTravelers() {
     }
     return (
         <>
-            <div className="py-3 d-flex justify-content-between">
-                <h3>Viaggiatori:</h3>
-                <Link to={"/"} className="btn btn-secondary">
+            <div className="py-3 w-50 m-auto">
+                <h3 className="d-none d-md-block">Lista Viaggiatori:</h3>
+                {/* <Link to={"/"} className="btn btn-secondary">
                     Torna alla Home
-                </Link>
+                </Link> */}
                 <Searchbar handleSearch={filterTravellers} />
             </div>
-            <ul className="list-group d-flex justify-content-between">
-                {travelers.map((traveler) => {
-                    const nameSurname = traveler.name + " " + traveler.surname;
-                    const surnameName = traveler.surname + " " + traveler.name;
-                    return (
-                        (nameSurname
-                            .toLowerCase()
-                            .trim()
-                            .includes(query.toLowerCase().trim()) ||
-                            surnameName
+            <div className="d-flex justify-content-center">
+
+
+                <ul className="list-group w-50">
+                    {travelers.map((traveler, index) => {
+                        const nameSurname = traveler.name + " " + traveler.surname;
+                        const surnameName = traveler.surname + " " + traveler.name;
+                        return (
+                            (nameSurname
                                 .toLowerCase()
                                 .trim()
                                 .includes(query.toLowerCase().trim()) ||
-                            !query) && traveler.name && (
-                            <li
-                                key={traveler?.id}
-                                className="list-group-item d-flex justify-content-between"
-                            >
-                                <div>
-                                    <strong>
-                                        {traveler.surname}
-                                    </strong>
-                                </div>
-                                <div>
-                                    <strong>
-                                        {traveler.name}
-                                    </strong>
-                                </div>
-
-                                <div>
-                                    Indirizzo e-mail: {traveler.email}
-                                </div>
-                                <div>
-                                    Numero di telefono: {traveler.phoneNumber}
-                                </div>
-                            </li>
-                        )
-                    );
-                })}
-            </ul>
+                                surnameName
+                                    .toLowerCase()
+                                    .trim()
+                                    .includes(query.toLowerCase().trim()) ||
+                                !query) && traveler.name && (
+                                <li
+                                    key={traveler.id}
+                                    className="list-group-item d-flex justify-content-between align-items-center bg-light"
+                                >
+                                    <div className="d-flex flex-column flex-md-row w-100">
+                                        <div className="w-25">
+                                            <strong >
+                                                {traveler.name}
+                                            </strong></div>
+                                        <div className="w-25">
+                                            <strong>
+                                                {traveler.surname}
+                                            </strong></div>
+                                    </div>
+                                    <Link
+                                        to={`${traveler.id}`}
+                                        className="btn btn-dark btn-sm"
+                                        style={{ backgroundColor: "#3FBCE7", height: "30px" }}
+                                        traveler={traveler}
+                                    >
+                                        Dettagli
+                                    </Link>
+                                </li>
+                            )
+                        );
+                    })}
+                </ul>
+            </div>
         </>
     );
 }
