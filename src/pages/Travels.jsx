@@ -23,7 +23,7 @@ export default function Travels() {
     <>
       <div className="d-flex align-items-center justify-content-center my-3">
         <Link to={"/alltravelers"} className="btn btn-dark">
-          Tutti i viaggatori
+          Lista completa dei viaggiatori
         </Link>
       </div>
       <div className="container mt-5">
@@ -32,7 +32,7 @@ export default function Travels() {
         </div>
         {ongoingTrips.map((trip) => (
           <div
-            className="my-5 bg-light p-1"
+            className="my-5 bg-light p-3"
             key={trip.id}
             style={{
               position: "relative",
@@ -57,14 +57,14 @@ export default function Travels() {
               <div className="my-2">
                 <h2 className="fw-bold">{trip.title}</h2>
               </div>
-              <div className="d-flex flex-direction-column justify-content-around my-2">
-                <p>Data della partenza: {trip.startDate}</p>
-                <p>Data di ritorno: {trip.endDate}</p>
+              <div className="d-flex justify-content-between flex-md-column my-2">
+                <p className="w-50 text-center text-md-start">Data della partenza:<br /> {trip.startDate}</p>
+                <p className="w-50 text-center text-md-start">Data di ritorno:<br /> {trip.endDate}</p>
               </div>
               <div className="my-2 d-flex justify-content-between">
                 <h3>{trip.destination}</h3>
-                <Link to={`/${trip.id}`} className="btn btn-dark btn-sm">
-                  Vai al viaggio
+                <Link to={`/${trip.id}`} className="btn btn-dark btn-sm d-flex align-self-center">
+                  Dettagli del viaggio
                 </Link>
               </div>
             </div>
@@ -76,7 +76,7 @@ export default function Travels() {
         </div>
         {futureTrips.map((trip) => (
           <div
-            className="my-5 bg-light p-1"
+            className="my-5 bg-light p-3"
             key={trip.id}
             style={{
               position: "relative",
@@ -101,20 +101,24 @@ export default function Travels() {
               <div className="my-2">
                 <h2 className="fw-bold">{trip.title}</h2>
               </div>
-              <div className="d-flex flex-direction-column justify-content-around my-2">
-                <p>Data della partenza: {trip.startDate}</p>
-                <p>Data di ritorno: {trip.endDate}</p>
+              <div className="d-flex justify-content-between flex-md-column my-2">
+                <p className="w-50 text-center text-md-start">Data della partenza:<br /> {trip.startDate}</p>
+                <p className="w-50 text-center text-md-start">Data di ritorno:<br /> {trip.endDate}</p>
               </div>
+
+              {/* <div className="d-flex flex-direction-column justify-content-around my-2">
+            
+              </div> */}
               <div className="my-2 d-flex justify-content-between">
                 <h3>{trip.destination}</h3>
-                <Link to={`/${trip.id}`} className="btn btn-sm btn-dark">
-                  Vai al viaggio
+                <Link to={`/${trip.id}`} className="btn btn-sm btn-dark d-flex align-self-center">
+                  Dettaglio del viaggio
                 </Link>
               </div>
             </div>
           </div>
         ))}
-      </div>
+      </div >
     </>
   );
 }

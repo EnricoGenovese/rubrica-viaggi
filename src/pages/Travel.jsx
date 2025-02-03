@@ -59,8 +59,9 @@ export default function Travel() {
               <br />
               <strong>Destinazione:</strong> {currentTrip.destination}
             </p>
-            <div className="py-3 d-flex justify-content-between">
-              <h3>Viaggiatori:</h3>
+            <h3>Viaggiatori:</h3>
+            <div className="pb-3">
+
               <Searchbar handleSearch={filterTravellers} />
             </div>
             <ul className="list-group">
@@ -77,7 +78,7 @@ export default function Travel() {
                 .map((traveler) => (
                   <li
                     key={traveler.id}
-                    className="list-group-item d-flex justify-content-between align-items-center"
+                    className="list-group-item d-flex justify-content-between align-items-center py-3"
                   >
                     <strong>
                       {traveler.name} {traveler.surname}

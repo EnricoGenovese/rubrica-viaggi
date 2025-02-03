@@ -209,7 +209,7 @@ const trips = [
     endDate: "2026-01-05",
     destination: "Sydney, Australia",
     travelers: [travelers[10], travelers[11], travelers[12], travelers[13]],
-    bg: "url(https://images.unsplash.com/photo-1524820197278-540916411e20?q=80&w=2095&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
+    bg: "url(https://www.hostelworld.com/blog/wp-content/uploads/2019/12/travel-east-coast-Australia-Sydney-Getty-Images.jpg)",
   },
 
 ];

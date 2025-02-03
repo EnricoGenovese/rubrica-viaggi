@@ -4,8 +4,15 @@ main {
     height: calc(100vh - 50px);
     /* margin-top: 50px; */
     overflow-y: scroll;
+    padding-bottom: 50px;
 }
 
 .debug {
     border: 1px, solid, red;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    aspect-ratio: 1/3;
 }
