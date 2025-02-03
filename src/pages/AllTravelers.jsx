@@ -38,7 +38,7 @@ export default function AllTravelers() {
                                 !query) && traveler.name && (
                                 <li
                                     key={traveler.id}
-                                    className="list-group-item d-flex justify-content-between align-items-center text-white p-3"
+                                    className=" d-flex justify-content-between align-items-center text-white p-3 border-bottom border-light"
                                     style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
                                 >
                                     <div className="d-flex flex-column flex-md-row w-100">
