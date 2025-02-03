@@ -21,9 +21,11 @@ export default function Travels() {
 
   return (
     <>
-      <Link to={"/alltravelers"} className="btn btn-secondary">
-        Tutti i viaggatori
-      </Link>
+      <div className="d-flex align-items-center justify-content-center my-3">
+        <Link to={"/alltravelers"} className="btn btn-dark">
+          Tutti i viaggatori
+        </Link>
+      </div>
       <div className="container mt-5">
         <div className="p-2">
           <h2 className="fw-bold">Viaggi in corso: </h2>
