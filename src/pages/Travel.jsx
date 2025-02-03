@@ -9,7 +9,7 @@ export default function Travel() {
 
   const currentTrip = trips.find((trip) => trip.id === parseInt(id));
   const [query, setQuery] = useState("");
-  const { name, surname } = travelers;
+  // const { name, surname } = travelers;
   function filterTravellers(e) {
     setQuery(e.target.value);
   }
@@ -45,7 +45,6 @@ export default function Travel() {
             {currentTrip.travelers.map((traveler) => {
               const nameSurname = traveler.name + " " + traveler.surname;
               const surnameName = traveler.surname + " " + traveler.name;
-              console.log(nameSurname);
               return (
                 (nameSurname
                   .toLowerCase()

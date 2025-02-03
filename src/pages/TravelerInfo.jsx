@@ -9,7 +9,6 @@ export default function TravelerInfo() {
 
     const traveler = travelers.find((traveler) => traveler.id === parseInt(id));
     const currentTripId = trips.reduce((curr, next) => curr.travelers.map((traveler) => traveler.id).includes(traveler.id) ? curr : next).id
-    console.log("trip: ", currentTripId, "traveler: ", traveler.id)
     return (
         <div className="container mt-5">
             <div className="my-5 bg-light p-4">

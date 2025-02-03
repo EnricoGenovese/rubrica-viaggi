@@ -6,6 +6,7 @@ import TravelerInfo from "./pages/TravelerInfo";
 // import NotFound from "./pages/NotFound";
 import { GlobalProvider } from "./context/GlobalContext";
 import ErrorPage from "./pages/ErrorPage";
+import AllTravelers from "./pages/allTravelers";
 
 function App() {
   return (
@@ -17,10 +18,11 @@ function App() {
             <Route path="/">
               <Route index Component={Travels} />
               <Route path=":id" Component={Travel} />
-              <Route path="/:id/:id" Component={TravelerInfo} />
+              <Route path=":id/:id" Component={TravelerInfo} />
+              <Route path="/alltravelers" Component={AllTravelers} />
             </Route>
-            <Route path="*" Component={ErrorPage} />
           </Route>
+          <Route path="*" Component={ErrorPage} />
         </Routes>
         {/* </GlobalProvider> */}
       </BrowserRouter>
