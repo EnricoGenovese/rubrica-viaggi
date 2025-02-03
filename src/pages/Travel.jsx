@@ -21,7 +21,7 @@ export default function Travel() {
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-4 fw-bold ">Dettagli del Viaggio</h1>
+      <h1 className="text-center mb-4 fw-bold">Dettagli del Viaggio</h1>
       <div className="card shadow-sm">
         <div
           className="card-body"
@@ -32,8 +32,10 @@ export default function Travel() {
             backgroundPosition: "center",
             color: "white",
             height: "80vh",
+            borderRadius: "10px",
           }}
         >
+          {/* Overlay scuro trasparente */}
           <div
             style={{
               position: "absolute",
@@ -42,10 +44,13 @@ export default function Travel() {
               right: 0,
               bottom: 0,
               backgroundColor: "rgba(0, 0, 0, 0.5)",
-              zIndex: 22,
+              borderRadius: "10px",
+              zIndex: 1,
             }}
           ></div>
-          <div style={{ position: "relative", zIndex: 222 }}>
+
+          {/* Contenuto sopra overlay */}
+          <div style={{ position: "relative", zIndex: 2 }}>
             <h2 className="card-title fw-bold">{currentTrip.title}</h2>
             <p className="card-text">
               <strong>Data di Partenza:</strong> {currentTrip.startDate}
@@ -65,19 +70,18 @@ export default function Travel() {
                   const surnameName = traveler.surname + " " + traveler.name;
                   return (
                     nameSurname.toLowerCase().includes(query.toLowerCase()) ||
-                    surnameName.toLowerCase().includes(query.toLowerCase())
+                    surnameName.toLowerCase().includes(query.toLowerCase()) ||
+                    query.trim() === ""
                   );
                 })
                 .map((traveler) => (
                   <li
                     key={traveler.id}
-                    className="d-flex justify-content-between"
+                    className="list-group-item d-flex justify-content-between align-items-center"
                   >
-                    <div>
-                      <strong>
-                        {traveler.name} {traveler.surname}
-                      </strong>
-                    </div>
+                    <strong>
+                      {traveler.name} {traveler.surname}
+                    </strong>
                     <Link to={`${traveler.id}`} className="btn btn-dark btn-sm">
                       Dettagli Viaggiatore
                     </Link>

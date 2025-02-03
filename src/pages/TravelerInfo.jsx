@@ -17,7 +17,7 @@ export default function TravelerInfo() {
 
   return (
     <div className="container mt-5">
-      <div className="my-5 p-4">
+      <div className="my-5  p-4">
         <div
           key={traveler.id}
           className="list-grouh4-item d-flex justify-content-between"
