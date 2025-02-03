@@ -4,7 +4,8 @@ import Travel from "./pages/Travel";
 import DefaultLayout from "./components/DefaultLayout";
 import TravelerInfo from "./pages/TravelerInfo";
 // import NotFound from "./pages/NotFound";
-import { GlobalProvider } from "./context/GlobalContext"
+import { GlobalProvider } from "./context/GlobalContext";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
@@ -13,15 +14,13 @@ function App() {
         {/* <GlobalProvider> */}
         <Routes>
           <Route Component={DefaultLayout}>
-            <Route path="/" >
+            <Route path="/">
               <Route index Component={Travels} />
-              <Route exact path=":id" Component={Travel} />
+              <Route path=":id" Component={Travel} />
               <Route path="/:id/:id" Component={TravelerInfo} />
             </Route>
+            <Route path="*" Component={ErrorPage} />
           </Route>
-
-
-          {/* <Route path="*" Component={NotFound} /> */}
         </Routes>
         {/* </GlobalProvider> */}
       </BrowserRouter>
