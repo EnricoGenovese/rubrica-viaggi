@@ -4,7 +4,6 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Searchbar from "../components/Searchbar.jsx";
 
-
 export default function Travel() {
   const { id } = useParams();
 
@@ -12,12 +11,10 @@ export default function Travel() {
   const [query, setQuery] = useState("");
   const { name, surname } = travelers;
   function filterTravellers(e) {
-
     setQuery(e.target.value);
   }
 
   return (
-
     <div className="container mt-5">
       <h1 className="text-center mb-4">Dettagli del Viaggio</h1>
       <div className="card shadow-sm">
@@ -45,48 +42,43 @@ export default function Travel() {
             <Searchbar handleSearch={filterTravellers} />
           </div>
           <ul className="list-group">
-
-            {currentTrip.travelers.map((traveler) => (
-              <li key={traveler.id} className=" d-flex justify-content-between">
-                <div>
-                  <strong>
-                    {traveler.name} {traveler.surname}
-                  </strong>
-                </div>
-                <Link
-                  to={`${traveler.id}`}
-                  className="btn btn-sm btn-secondary"
-                  traveler={traveler}
-                >
-                  Dettagli Viaggiatore
-                </Link>
-              </li>
-            ))}
-
-
             {currentTrip.travelers.map((traveler) => {
-
               const nameSurname = traveler.name + " " + traveler.surname;
               const surnameName = traveler.surname + " " + traveler.name;
-              console.log(nameSurname)
+              console.log(nameSurname);
               return (
-
-                (nameSurname.toLowerCase().trim().includes(query.toLowerCase().trim()) || surnameName.toLowerCase().trim().includes(query.toLowerCase().trim()) || !query) &&
-                < li key={traveler.id} className="list-group-item d-flex justify-content-between">
-                  <div>
-                    <strong>
-                      {traveler.name} {traveler.surname}
-                    </strong>
-                  </div>
-                  <Link to={`${traveler.id}`} className="btn btn-primary" traveler={traveler} >
-                    Dettagli Viaggiatore
-                  </Link>
-                </li>
-              )
+                (nameSurname
+                  .toLowerCase()
+                  .trim()
+                  .includes(query.toLowerCase().trim()) ||
+                  surnameName
+                    .toLowerCase()
+                    .trim()
+                    .includes(query.toLowerCase().trim()) ||
+                  !query) && (
+                  <li
+                    key={traveler.id}
+                    className="list-group-item d-flex justify-content-between"
+                  >
+                    <div>
+                      <strong>
+                        {traveler.name} {traveler.surname}
+                      </strong>
+                    </div>
+                    <Link
+                      to={`${traveler.id}`}
+                      className="btn btn-secondary"
+                      traveler={traveler}
+                    >
+                      Dettagli Viaggiatore
+                    </Link>
+                  </li>
+                )
+              );
             })}
-         </ul>
+          </ul>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
