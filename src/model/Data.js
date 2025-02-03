@@ -5,6 +5,7 @@ const travelers = [
     surname: "Rossi",
     email: "luca.rossi@example.com",
     phoneNumber: "+39 345 678 9012",
+    ssn: "TCJQSP31H56F171H "
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const travelers = [
     surname: "Bianchi",
     email: "giulia.bianchi@example.com",
     phoneNumber: "+39 333 456 7890",
+    ssn: "QTSGTH41R02C289T  "
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const travelers = [
     surname: "Verdi",
     email: "marco.verdi@example.com",
     phoneNumber: "+39 320 987 6543",
+    ssn: "SYMMLV66S20I310O  "
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ const travelers = [
     surname: "Russo",
     email: "elena.russo@example.com",
     phoneNumber: "+39 310 123 4567",
+    ssn: "MLBYVE53H42G431X"
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ const travelers = [
     surname: "Ferrari",
     email: "antonio.ferrari@example.com",
     phoneNumber: "+39 345 222 3333",
+    ssn: "ZJMZLB68L67F830C "
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ const travelers = [
     surname: "Colombo",
     email: "martina.colombo@example.com",
     phoneNumber: "+39 312 678 2345",
+    ssn: "VWLFTL28E65G678Y",
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ const travelers = [
     surname: "Romano",
     email: "davide.romano@example.com",
     phoneNumber: "+39 399 543 2109",
+    ssn: "QBLVHH32L29C900M",
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ const travelers = [
     surname: "Gallo",
     email: "sara.gallo@example.com",
     phoneNumber: "+39 328 789 6543",
+    ssn: "DMSVRM81A13G521S",
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ const travelers = [
     surname: "Bruno",
     email: "federico.bruno@example.com",
     phoneNumber: "+39 377 222 5555",
+    ssn: "LLMTHZ97A42H890M",
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ const travelers = [
     surname: "Marini",
     email: "chiara.marini@example.com",
     phoneNumber: "+39 356 321 9876",
+    ssn: "GSJCPK59C18L609H",
   },
   {
     id: 11,
@@ -75,6 +85,7 @@ const travelers = [
     surname: "Moretti",
     email: "riccardo.moretti@example.com",
     phoneNumber: "+39 333 444 5566",
+    ssn: "BPNYZZ51C27G923Z",
   },
   {
     id: 12,
@@ -82,6 +93,7 @@ const travelers = [
     surname: "Barbieri",
     email: "alessandra.barbieri@example.com",
     phoneNumber: "+39 322 654 3210",
+    ssn: "ZAEPCM42H02I220J",
   },
   {
     id: 13,
@@ -89,6 +101,7 @@ const travelers = [
     surname: "De Luca",
     email: "stefano.deluca@example.com",
     phoneNumber: "+39 345 987 1234",
+    ssn: "FRGVTB44H18I701A",
   },
   {
     id: 14,
@@ -96,6 +109,7 @@ const travelers = [
     surname: "Conti",
     email: "valentina.conti@example.com",
     phoneNumber: "+39 355 666 7777",
+    ssn: "RKUNDS41E50G645F",
   },
   {
     id: 15,
@@ -103,6 +117,7 @@ const travelers = [
     surname: "Lombardi",
     email: "matteo.lombardi@example.com",
     phoneNumber: "+39 366 222 4444",
+    ssn: "LQPWDP33T16I407L",
   },
   {
     id: 16,
@@ -110,6 +125,7 @@ const travelers = [
     surname: "Esposito",
     email: "francesco.esposito@example.com",
     phoneNumber: "+39 377 999 8888",
+    ssn: "FPTPNP47D29C550D",
   },
   {
     id: 17,
@@ -117,6 +133,7 @@ const travelers = [
     surname: "Ricci",
     email: "roberta.ricci@example.com",
     phoneNumber: "+39 344 111 2222",
+    ssn: "ZMHGYX41D11B508A",
   },
   {
     id: 18,
@@ -124,6 +141,7 @@ const travelers = [
     surname: "Ferrero",
     email: "giorgio.ferrero@example.com",
     phoneNumber: "+39 399 888 7777",
+    ssn: "QLVMGG97B26D143P",
   },
   {
     id: 19,
@@ -131,6 +149,7 @@ const travelers = [
     surname: "Santoro",
     email: "silvia.santoro@example.com",
     phoneNumber: "+39 322 555 9999",
+    ssn: "GCHCDV42R53A794A",
   },
   {
     id: 20,
@@ -138,15 +157,20 @@ const travelers = [
     surname: "Fabbri",
     email: "emanuele.fabbri@example.com",
     phoneNumber: "+39 311 777 6666",
+    ssn: "VRPHDE68H18C982O",
   },
+  {
+
+  }
+
 ];
 
 const trips = [
   {
     id: 1,
     title: "Tour della Toscana",
-    startDate: "2025-06-10",
-    endDate: "2025-06-20",
+    startDate: "2025-01-30",
+    endDate: "2025-02-05",
     destination: "Toscana, Italia",
     travelers: [travelers[0], travelers[1]],
     bg: `url('https://plus.unsplash.com/premium_photo-1675970835839-261d62505450?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
@@ -187,6 +211,7 @@ const trips = [
     travelers: [travelers[10], travelers[11], travelers[12], travelers[13]],
     bg: "url(https://images.unsplash.com/photo-1524820197278-540916411e20?q=80&w=2095&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
   },
+
 ];
 
 export { travelers, trips };
