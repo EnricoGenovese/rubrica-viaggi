@@ -15,13 +15,14 @@ export default function TravelerInfo() {
             <div className="my-5 bg-light p-4">
                 <div key={traveler.id} className="list-grouh4-item d-flex justify-content-between">
                     <div className="my-2">
-                        <h4>{traveler.name}</h4>
-                        <h4>{traveler.surname}</h4>
+                        <h3>{traveler.name}</h3>
+                        <h3>{traveler.surname}</h3>
                     </div>
                 </div>
                 <div className="my-5">
                     <h4 className="my-1">Indirizzo e-mail: <strong>{traveler.email}</strong></h4>
                     <h4 className="my-1">Numero di telefono: <strong>{traveler.phoneNumber}</strong></h4>
+                    <h4 className="my-1">Codice Fiscale: <strong>{traveler.ssn}</strong></h4>
                 </div>
                 <div className="d-flex justify-content-around">
                     <Link to={`/`} className="btn btn-primary">
