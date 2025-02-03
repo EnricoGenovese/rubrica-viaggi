@@ -51,7 +51,7 @@ export default function TravelerInfo() {
           </div>
         </div>
 
-        <div className="d-flex justify-content-end gap-3 pt-5">
+        <div className="d-flex justify-content-end  gap-3 pt-5">
           <Link to={`/`} className="btn btn-dark btn-sm">
             Torna alla Home Page
           </Link>
