@@ -7,13 +7,15 @@ export default function Travels() {
   const mm = today.getMonth() + 1;
   const year = today.getFullYear();
   today = year + "-" + ("0" + mm).slice(-2) + "-" + ("0" + dd).slice(-2);
-  console.log(today);
 
   const ongoingTrips = trips.filter((trip) => trip.startDate < today);
   const futureTrips = trips.filter((trip) => trip.startDate > today);
 
   return (
     <>
+      <Link to={"/alltravelers"} className="btn btn-secondary">
+        Tutti i viaggatori
+      </Link>
       <div className="container mt-5">
         <div className="bg-light p-2">
           <h2>Viaggi in corso: </h2>
