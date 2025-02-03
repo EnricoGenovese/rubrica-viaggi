@@ -64,7 +64,7 @@ export default function Travel() {
 
               <Searchbar handleSearch={filterTravellers} />
             </div>
-            <ul className="list-group">
+            <ul>
               {currentTrip.travelers
                 .filter((traveler) => {
                   const nameSurname = traveler.name + " " + traveler.surname;
