@@ -1,7 +1,7 @@
 import { trips } from "../model/Data.js";
 import { Link } from "react-router-dom";
 
-export default function Travels({ handleSubmit, travels }) {
+export default function Travels() {
   let today = new Date();
   const dd = today.getDate();
   const mm = today.getMonth() + 1;
