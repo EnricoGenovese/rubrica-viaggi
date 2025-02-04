@@ -68,11 +68,11 @@ export default function Travels() {
       </div>
       <div className="container mt-5">
         <div className="p-2">
-          <h2 className="fw-bold">Viaggi in corso: </h2>
+          <h2 className="fw-bold p-3 text-white" style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}>Viaggi in corso: </h2>
         </div>
         {ongoingTrips.map((trip) => (
           <div
-            className="my-5 bg-light p-3"
+            className="my-3 bg-light p-3"
             key={trip.id}
             style={{
               position: "relative",
@@ -109,19 +109,21 @@ export default function Travels() {
               </div>
               <div className="my-2 d-flex justify-content-between">
                 <h3>{trip.destination}</h3>
-                <Link
-                  to={`/${trip.id}`}
-                  className="btn btn-dark btn-sm d-flex align-self-center"
-                >
-                  Dettagli
-                </Link>
-                <div
-                  className="btn btn-danger btn-sm d-flex align-self-center"
-                  onClick={() => {
-                    deleteTravel(travel.id);
-                  }}
-                >
-                  Cancella
+                <div className="d-flex gap-3">
+                  <Link
+                    to={`/${trip.id}`}
+                    className="btn btn-dark btn-sm d-flex align-self-center"
+                  >
+                    Dettagli
+                  </Link>
+                  <div
+                    className="btn btn-danger btn-sm d-flex align-self-center"
+                    onClick={() => {
+                      deleteTravel(travel.id);
+                    }}
+                  >
+                    Cancella
+                  </div>
                 </div>
               </div>
             </div>
@@ -129,11 +131,12 @@ export default function Travels() {
         ))}
 
         <div className="p-2">
-          <h2 className="fw-bold">Viaggi futuri: </h2>
+          <h2 className="fw-bold p-3 text-white" style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
+            Viaggi futuri: </h2>
         </div>
         {futureTrips.map((trip) => (
           <div
-            className="my-5 bg-light p-3"
+            className="my-3 bg-light p-3"
             key={trip.id}
             style={{
               position: "relative",
@@ -174,19 +177,21 @@ export default function Travels() {
               </div> */}
               <div className="my-2 d-flex justify-content-between">
                 <h3>{trip.destination}</h3>
-                <Link
-                  to={`/${trip.id}`}
-                  className="btn btn-sm btn-dark d-flex align-self-center"
-                >
-                  Dettagli
-                </Link>
-                <div
-                  className="btn btn-danger btn-sm d-flex align-self-center"
-                  onClick={() => {
-                    deleteTravel(travel.id);
-                  }}
-                >
-                  Cancella
+                <div className="d-flex gap-3">
+                  <Link
+                    to={`/${trip.id}`}
+                    className="btn btn-dark btn-sm d-flex align-self-center"
+                  >
+                    Dettagli
+                  </Link>
+                  <div
+                    className="btn btn-danger btn-sm d-flex align-self-center"
+                    onClick={() => {
+                      deleteTravel(travel.id);
+                    }}
+                  >
+                    Cancella
+                  </div>
                 </div>
               </div>
             </div>
@@ -198,7 +203,7 @@ export default function Travels() {
           className="p-4 shadow-lg rounded  text-center text-white"
           style={{
             backgroundColor: "rgba(0, 0, 0, 0.5)",
-            maxWidth: "930px",
+            maxWidth: "1300px",
             width: "90%",
           }}
         >
