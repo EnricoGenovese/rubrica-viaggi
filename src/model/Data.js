@@ -159,11 +159,9 @@ const travelers = [
     phoneNumber: "+39 311 777 6666",
     ssn: "VRPHDE68H18C982O",
   },
-  {
-
-  }
-
 ];
+
+console.log(travelers)
 
 const trips = [
   {
