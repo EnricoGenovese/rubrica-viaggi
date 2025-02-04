@@ -1,15 +1,57 @@
+import { useState } from "react";
 import { trips } from "../model/Data.js";
 import { Link } from "react-router-dom";
 
 export default function Travels() {
+
+  let newId = 0;
+
+  const newTravel = {
+    id: newId,
+    title: "",
+    startDate: "",
+    endDate: "",
+    destination: "",
+    travelers: [],
+    bg: "",
+  }
+
+  const [travel, setTravel] = useState(newTravel)
+  const [travelsList, setTravelsList] = useState(trips);
+
   let today = new Date();
   const dd = today.getDate();
   const mm = today.getMonth() + 1;
   const year = today.getFullYear();
   today = year + "-" + ("0" + mm).slice(-2) + "-" + ("0" + dd).slice(-2);
 
-  const ongoingTrips = trips.filter((trip) => trip.startDate < today);
-  const futureTrips = trips.filter((trip) => trip.startDate > today);
+  const ongoingTrips = travelsList.filter((trip) => trip.startDate < today);
+  const futureTrips = travelsList.filter((trip) => trip.startDate > today);
+
+  newId = travelsList.reduce((curr, next) => curr.id < next.id ? next : curr).id + 1;
+
+  function handleTravel(event) {
+    const value = event.target.value;
+    setTravel({ ...travel, [event.target.name]: value })
+    console.log(travel)
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (travel.startDate > travel.endDate) {
+      return
+    } else {
+      setTravelsList(travelsList => [...travelsList, travel]);
+      setTravel(newTravel);
+    }
+    console.log(travelsList)
+
+  }
+
+  function deleteTravel(id) {
+    const travelsLeft = travelsList.filter((travel) => travel.id !== id);
+    setTravelsList(travelsLeft)
+  }
 
   if (ongoingTrips.length == 0 && futureTrips.length == 0) {
     return (
@@ -66,6 +108,10 @@ export default function Travels() {
                 <Link to={`/${trip.id}`} className="btn btn-dark btn-sm d-flex align-self-center">
                   Dettagli del viaggio
                 </Link>
+                <div className="btn btn-danger"
+                  onClick={() => { deleteTravel(travel.id) }}>
+                  Cancella
+                </div>
               </div>
             </div>
           </div>
@@ -114,11 +160,102 @@ export default function Travels() {
                 <Link to={`/${trip.id}`} className="btn btn-sm btn-dark d-flex align-self-center">
                   Dettaglio del viaggio
                 </Link>
+                <div className="btn btn-danger"
+                  onClick={() => { deleteTravel(travel.id) }}>
+                  Cancella
+                </div>
               </div>
             </div>
           </div>
         ))}
       </div >
+      <section className="my-5">
+        <h2>Inserisci un nuovo viaggio</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-2">
+            <label htmlFor="title" className="form-label">
+              Nome del viaggio
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="title"
+              aria-describedby="titleHelp"
+              value={travel.title}
+              onChange={handleTravel}
+              name="title"
+              required
+            />
+          </div>
+          <div className="mb-2">
+            <label htmlFor="destination" className="form-label">
+              Destinazione del viaggio
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="destination"
+              aria-describedby="destinationHelp"
+              value={travel.destination}
+              onChange={handleTravel}
+              name="destination"
+              required
+            />
+          </div>
+          <div className="d-flex justify-content-between">
+            <div className="mb-2 w-50">
+              <label htmlFor="startDate" className="form-label">
+                Data di partenza
+              </label>
+              <input
+                type="date"
+                className="form-control"
+                id="startDate"
+                aria-describedby="startDateHelp"
+                value={travel.startDate}
+                onChange={handleTravel}
+                name="startDate"
+                required
+              />
+            </div>
+            <div className="mb-2 w-50">
+              <label htmlFor="endDate" className="form-label">
+                Data di rientro
+              </label>
+              <input
+                type="date"
+                className="form-control"
+                id="endDate"
+                aria-describedby="endDateHelp"
+                value={travel.endDate}
+                onChange={handleTravel}
+                name="endDate"
+                required
+              />
+            </div>
+          </div>
+          <div className="mb-2">
+            <label htmlFor="bg" className="form-label">
+              Immagine del viaggio
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="bg"
+              aria-describedby="bgHelp"
+              value={travel.bg}
+              onChange={handleTravel}
+              name="bg"
+              required
+            />
+          </div>
+
+          <button type="submit" className="btn btn-primary" key={travel.id}>
+            Pubblica
+          </button>
+        </form>
+      </section>
+
     </>
   );
 }

@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { trips } from "../model/Data";
 
-let newId = 0;
+
 export default function TravelForm() {
+    let newId = 0;
 
     const newTravel = {
         id: newId,
@@ -14,7 +15,7 @@ export default function TravelForm() {
         bg: "",
     }
     const [travel, setTravel] = useState(newTravel)
-    const [travelsList, setTravelsList] = useState([...trips]);
+    const [travelsList, setTravelsList] = useState(trips);
 
     newId = travelsList.reduce((curr, next) => curr.id < next.id ? next : curr).id + 1;
 
@@ -29,8 +30,10 @@ export default function TravelForm() {
             return
         } else {
             setTravelsList(travelsList => [...travelsList, travel]);
+            console.log(travel);
             setTravel(newTravel);
         }
+
 
     }
 
@@ -99,7 +102,7 @@ export default function TravelForm() {
                                 className="form-control"
                                 id="endDate"
                                 aria-describedby="endDateHelp"
-                                value={travel.endDate}
+                                value={`url(${travel.endDate})`}
                                 onChange={handleTravel}
                                 name="endDate"
                                 required
