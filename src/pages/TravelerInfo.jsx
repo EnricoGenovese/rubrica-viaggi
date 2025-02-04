@@ -25,9 +25,9 @@ export default function TravelerInfo() {
           key={traveler.id}
           className="list-group-item d-flex justify-content-between"
         >
-
-          <h3 className="text-center w-100 text-white">{traveler.name} {traveler.surname}</h3>
-
+          <h3 className="text-center w-100 text-white">
+            {traveler.name} {traveler.surname}
+          </h3>
         </div>
         <div className="d-flex flex-column border-md-bottom flex-md-row justify-content-md-around text-white pt-3">
           <div className="border-bottom border-light py-3">
@@ -52,8 +52,8 @@ export default function TravelerInfo() {
         </div>
 
         <div className="d-flex justify-content-center justify-content-md-end  gap-3 pt-5">
-          <Link to={`/`} className="btn btn-dark btn-sm">
-            Torna alla Home Page
+          <Link to={`/travels`} className="btn btn-dark btn-sm">
+            Torna alla Lista Viaggi
           </Link>
           <Link to={`/${currentTripId}`} className="btn btn-dark btn-sm">
             Torna al viaggio
