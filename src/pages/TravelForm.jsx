@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { trips } from "../model/Data";
 
-let newId = 0;
+
 export default function TravelForm() {
+    let newId = 0;
 
     const newTravel = {
         id: newId,
@@ -14,7 +15,7 @@ export default function TravelForm() {
         bg: "",
     }
     const [travel, setTravel] = useState(newTravel)
-    const [travelsList, setTravelsList] = useState([...trips]);
+    const [travelsList, setTravelsList] = useState(trips);
 
     newId = travelsList.reduce((curr, next) => curr.id < next.id ? next : curr).id + 1;
 
@@ -25,9 +26,14 @@ export default function TravelForm() {
 
     function handleSubmit(event) {
         event.preventDefault();
+        if (travel.startDate > travel.endDate) {
+            return
+        } else {
+            setTravelsList(travelsList => [...travelsList, travel]);
+            console.log(travel);
+            setTravel(newTravel);
+        }
 
-        setTravelsList(travelsList => [...travelsList, newTravel]);
-        setTravel(newTravel);
 
     }
 
@@ -35,7 +41,6 @@ export default function TravelForm() {
         const travelsLeft = travelsList.filter((travel) => travel.id !== id);
         setTravelsList(travelsLeft)
     }
-
 
     return (
         <>
@@ -78,7 +83,7 @@ export default function TravelForm() {
                                 Data di partenza
                             </label>
                             <input
-                                type="text"
+                                type="date"
                                 className="form-control"
                                 id="startDate"
                                 aria-describedby="startDateHelp"
@@ -93,11 +98,11 @@ export default function TravelForm() {
                                 Data di rientro
                             </label>
                             <input
-                                type="text"
+                                type="date"
                                 className="form-control"
                                 id="endDate"
                                 aria-describedby="endDateHelp"
-                                value={travel.endDate}
+                                value={`url(${travel.endDate})`}
                                 onChange={handleTravel}
                                 name="endDate"
                                 required
