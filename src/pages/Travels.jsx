@@ -4,10 +4,8 @@ import { Link } from "react-router-dom";
 
 export default function Travels() {
 
-  let newId = 0;
-
   const newTravel = {
-    id: newId,
+    id: 0,
     title: "",
     startDate: "",
     endDate: "",
@@ -28,7 +26,7 @@ export default function Travels() {
   const ongoingTrips = travelsList.filter((trip) => trip.startDate < today);
   const futureTrips = travelsList.filter((trip) => trip.startDate > today);
 
-  newId = travelsList.reduce((curr, next) => curr.id < next.id ? next : curr).id + 1;
+  newTravel.id = travelsList.reduce((curr, next) => curr.id < next.id ? next : curr).id + 1;
 
   function handleTravel(event) {
     const value = event.target.value;
@@ -106,9 +104,9 @@ export default function Travels() {
               <div className="my-2 d-flex justify-content-between">
                 <h3>{trip.destination}</h3>
                 <Link to={`/${trip.id}`} className="btn btn-dark btn-sm d-flex align-self-center">
-                  Dettagli del viaggio
+                  Dettagli
                 </Link>
-                <div className="btn btn-danger"
+                <div className="btn btn-danger btn-sm d-flex align-self-center"
                   onClick={() => { deleteTravel(travel.id) }}>
                   Cancella
                 </div>
@@ -158,9 +156,9 @@ export default function Travels() {
               <div className="my-2 d-flex justify-content-between">
                 <h3>{trip.destination}</h3>
                 <Link to={`/${trip.id}`} className="btn btn-sm btn-dark d-flex align-self-center">
-                  Dettaglio del viaggio
+                  Dettagli
                 </Link>
-                <div className="btn btn-danger"
+                <div className="btn btn-danger btn-sm d-flex align-self-center"
                   onClick={() => { deleteTravel(travel.id) }}>
                   Cancella
                 </div>
