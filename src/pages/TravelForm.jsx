@@ -25,9 +25,12 @@ export default function TravelForm() {
 
     function handleSubmit(event) {
         event.preventDefault();
-
-        setTravelsList(travelsList => [...travelsList, newTravel]);
-        setTravel(newTravel);
+        if (travel.startDate > travel.endDate) {
+            return
+        } else {
+            setTravelsList(travelsList => [...travelsList, travel]);
+            setTravel(newTravel);
+        }
 
     }
 
@@ -35,7 +38,6 @@ export default function TravelForm() {
         const travelsLeft = travelsList.filter((travel) => travel.id !== id);
         setTravelsList(travelsLeft)
     }
-
 
     return (
         <>
@@ -78,7 +80,7 @@ export default function TravelForm() {
                                 Data di partenza
                             </label>
                             <input
-                                type="text"
+                                type="date"
                                 className="form-control"
                                 id="startDate"
                                 aria-describedby="startDateHelp"
@@ -93,7 +95,7 @@ export default function TravelForm() {
                                 Data di rientro
                             </label>
                             <input
-                                type="text"
+                                type="date"
                                 className="form-control"
                                 id="endDate"
                                 aria-describedby="endDateHelp"
