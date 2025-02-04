@@ -8,6 +8,7 @@ import { GlobalProvider } from "./context/GlobalContext";
 import ErrorPage from "./pages/ErrorPage";
 import AllTravelers from "./pages/allTravelers";
 import TravelForm from "./pages/TravelForm";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Routes>
           <Route Component={DefaultLayout}>
             <Route path="/">
-              <Route index Component={Travels} />
+              <Route index Component={Login} />
+              <Route path="travels" Component={Travels}></Route>
               <Route path=":id" Component={Travel} />
               <Route path=":id/:id" Component={TravelerInfo} />
               <Route path="/alltravelers" Component={AllTravelers} />
