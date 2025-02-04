@@ -24,12 +24,15 @@ export default function Travel() {
   const [travelersList, setTravelersList] = useState([...travelers])
 
 
+
+
   traveler.id = travelersList.reduce((curr, next) => curr.id < next.id ? next : curr).id + 1;
 
   function handleSubmit(e) {
     e.preventDefault();
     setTravelersList(travelersList => [...travelersList, traveler])
     console.log(travelersList)
+    addTraveler();
     setTraveler(newTraveler)
   }
 
@@ -38,8 +41,21 @@ export default function Travel() {
     setTraveler({ ...traveler, [e.target.name]: value })
   }
 
+  function addTraveler() {
+    setCurrentTrip({
+      ...currentTrip,
+      travelers: { ...currentTrip.travelers, [traveler.id]: traveler }
+    })
+    return (currentTrip);
+  }
+
+
   const { id } = useParams();
-  const currentTrip = trips.find((trip) => trip.id === parseInt(id));
+  const [currentTrip, setCurrentTrip] = useState(trips.find((trip) => trip.id === parseInt(id)));
+  console.log(currentTrip)
+  const travelersArray = Object.values(currentTrip.travelers);
+
+
 
   if (!currentTrip) {
     return (
@@ -66,7 +82,6 @@ export default function Travel() {
               backgroundSize: "cover",
               backgroundPosition: "center",
               color: "white",
-              height: "80vh",
               borderRadius: "10px",
             }}
           >
@@ -98,18 +113,20 @@ export default function Travel() {
 
                 <Searchbar handleSearch={filterTravellers} />
               </div>
-              <div className="d-flex justify-content-between align-items-center px-3 mb-3">
-                <h3>Viaggiatori:</h3>
-                <a href="#form" className="btn btn-dark btn-sm">Aggiungi Viaggiatore</a>
+
+              <div className="d-flex gap-2 my-2 justify-content-md-end">
+
+                <a href="#form" className="btn btn-dark btn-sm" style={{ height: "30px" }}>Aggiungi Viaggiatore</a>
 
 
-                <Link to={`/`} className="btn btn-dark btn-sm">
+                <Link to={`/`} className="btn btn-dark btn-sm" style={{ height: "30px" }}>
                   Torna alla Home Page
                 </Link>
               </div>
+              <h3 className="text-center text-md-start">Viaggiatori:</h3>
 
               <ul className="list-unstyled">
-                {currentTrip.travelers
+                {travelersArray
                   .filter((traveler) => {
                     const nameSurname = traveler.name + " " + traveler.surname;
                     const surnameName = traveler.surname + " " + traveler.name;
@@ -164,7 +181,7 @@ export default function Travel() {
             <input type="text" className="form-control" id="Codicefiscale" placeholder="Inserisci codice fiscale" name="ssn" value={traveler.ssn} onChange={handleInput} />
           </div>
           <div className="d-flex justify-content-center mt-3">
-            <button type="submit" className="btn btn-primary">Aggiungi partecipante</button>
+            <button type="submit" className="btn btn-dark btn-sm">Aggiungi partecipante</button>
           </div>
         </form>
       </div>
