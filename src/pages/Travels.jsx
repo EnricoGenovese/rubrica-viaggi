@@ -3,7 +3,6 @@ import { trips } from "../model/Data.js";
 import { Link } from "react-router-dom";
 
 export default function Travels() {
-
   const newTravel = {
     id: 0,
     title: "",
@@ -26,7 +25,9 @@ export default function Travels() {
   const ongoingTrips = travelsList.filter((trip) => trip.startDate < today);
   const futureTrips = travelsList.filter((trip) => trip.startDate > today);
 
-  newTravel.id = travelsList.reduce((curr, next) => curr.id < next.id ? next : curr).id + 1;
+  newTravel.id =
+    travelsList.reduce((curr, next) => (curr.id < next.id ? next : curr)).id +
+    1;
 
   function handleTravel(event) {
     const value = event.target.value;
@@ -103,11 +104,18 @@ export default function Travels() {
               </div>
               <div className="my-2 d-flex justify-content-between">
                 <h3>{trip.destination}</h3>
-                <Link to={`/${trip.id}`} className="btn btn-dark btn-sm d-flex align-self-center">
-                  Dettagli del viaggio
+                <Link
+                  to={`/${trip.id}`}
+                  className="btn btn-dark btn-sm d-flex align-self-center"
+                >
+                  Dettagli
                 </Link>
-                <div className="btn btn-danger"
-                  onClick={() => { deleteTravel(travel.id) }}>
+                <div
+                  className="btn btn-danger btn-sm d-flex align-self-center"
+                  onClick={() => {
+                    deleteTravel(travel.id);
+                  }}
+                >
                   Cancella
                 </div>
               </div>
@@ -155,105 +163,121 @@ export default function Travels() {
               </div> */}
               <div className="my-2 d-flex justify-content-between">
                 <h3>{trip.destination}</h3>
-                <Link to={`/${trip.id}`} className="btn btn-sm btn-dark d-flex align-self-center">
-                  Dettaglio del viaggio
+                <Link
+                  to={`/${trip.id}`}
+                  className="btn btn-sm btn-dark d-flex align-self-center"
+                >
+                  Dettagli
                 </Link>
-                <div className="btn btn-danger"
-                  onClick={() => { deleteTravel(travel.id) }}>
+                <div
+                  className="btn btn-danger btn-sm d-flex align-self-center"
+                  onClick={() => {
+                    deleteTravel(travel.id);
+                  }}
+                >
                   Cancella
                 </div>
               </div>
             </div>
           </div>
         ))}
-      </div >
-      <section className="my-5">
-        <h2>Inserisci un nuovo viaggio</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-2">
-            <label htmlFor="title" className="form-label">
-              Nome del viaggio
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="title"
-              aria-describedby="titleHelp"
-              value={travel.title}
-              onChange={handleTravel}
-              name="title"
-              required
-            />
-          </div>
-          <div className="mb-2">
-            <label htmlFor="destination" className="form-label">
-              Destinazione del viaggio
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="destination"
-              aria-describedby="destinationHelp"
-              value={travel.destination}
-              onChange={handleTravel}
-              name="destination"
-              required
-            />
-          </div>
-          <div className="d-flex justify-content-between">
-            <div className="mb-2 w-50">
-              <label htmlFor="startDate" className="form-label">
-                Data di partenza
-              </label>
-              <input
-                type="date"
-                className="form-control"
-                id="startDate"
-                aria-describedby="startDateHelp"
-                value={travel.startDate}
-                onChange={handleTravel}
-                name="startDate"
-                required
-              />
-            </div>
-            <div className="mb-2 w-50">
-              <label htmlFor="endDate" className="form-label">
-                Data di rientro
-              </label>
-              <input
-                type="date"
-                className="form-control"
-                id="endDate"
-                aria-describedby="endDateHelp"
-                value={travel.endDate}
-                onChange={handleTravel}
-                name="endDate"
-                required
-              />
-            </div>
-          </div>
-          <div className="mb-2">
-            <label htmlFor="bg" className="form-label">
-              Immagine del viaggio
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="bg"
-              aria-describedby="bgHelp"
-              value={travel.bg}
-              onChange={handleTravel}
-              name="bg"
-              required
-            />
-          </div>
+      </div>
+      <section className="my-5 d-flex justify-content-center align-items-center">
+        <div
+          className="p-4 shadow-lg rounded  text-center text-white"
+          style={{
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            maxWidth: "930px",
+            width: "90%",
+          }}
+        >
+          <div>
+            <h2>Inserisci un nuovo viaggio</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-2">
+                <label htmlFor="title" className="form-label">
+                  Nome del viaggio
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="title"
+                  aria-describedby="titleHelp"
+                  value={travel.title}
+                  onChange={handleTravel}
+                  name="title"
+                  required
+                />
+              </div>
+              <div className="mb-2">
+                <label htmlFor="destination" className="form-label">
+                  Destinazione del viaggio
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="destination"
+                  aria-describedby="destinationHelp"
+                  value={travel.destination}
+                  onChange={handleTravel}
+                  name="destination"
+                  required
+                />
+              </div>
+              <div className="d-flex justify-content-between">
+                <div className="mb-2 w-50">
+                  <label htmlFor="startDate" className="form-label">
+                    Data di partenza
+                  </label>
+                  <input
+                    type="date"
+                    className="form-control"
+                    id="startDate"
+                    aria-describedby="startDateHelp"
+                    value={travel.startDate}
+                    onChange={handleTravel}
+                    name="startDate"
+                    required
+                  />
+                </div>
+                <div className="mb-2 w-50">
+                  <label htmlFor="endDate" className="form-label">
+                    Data di rientro
+                  </label>
+                  <input
+                    type="date"
+                    className="form-control"
+                    id="endDate"
+                    aria-describedby="endDateHelp"
+                    value={travel.endDate}
+                    onChange={handleTravel}
+                    name="endDate"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="mb-2">
+                <label htmlFor="bg" className="form-label">
+                  Immagine del viaggio
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="bg"
+                  aria-describedby="bgHelp"
+                  value={travel.bg}
+                  onChange={handleTravel}
+                  name="bg"
+                  required
+                />
+              </div>
 
-          <button type="submit" className="btn btn-primary" key={travel.id}>
-            Pubblica
-          </button>
-        </form>
-      </section>
+              <button type="submit" className="btn btn-primary" key={travel.id}>
+                Pubblica
+              </button>
+            </form>
+          </section>
 
-    </>
-  );
+        </>
+        );
 }
