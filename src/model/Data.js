@@ -5,7 +5,7 @@ const travelers = [
     surname: "Rossi",
     email: "luca.rossi@example.com",
     phoneNumber: "+39 345 678 9012",
-    ssn: "TCJQSP31H56F171H "
+    ssn: "TCJQSP31H56F171H ",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const travelers = [
     surname: "Bianchi",
     email: "giulia.bianchi@example.com",
     phoneNumber: "+39 333 456 7890",
-    ssn: "QTSGTH41R02C289T  "
+    ssn: "QTSGTH41R02C289T  ",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const travelers = [
     surname: "Verdi",
     email: "marco.verdi@example.com",
     phoneNumber: "+39 320 987 6543",
-    ssn: "SYMMLV66S20I310O  "
+    ssn: "SYMMLV66S20I310O  ",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const travelers = [
     surname: "Russo",
     email: "elena.russo@example.com",
     phoneNumber: "+39 310 123 4567",
-    ssn: "MLBYVE53H42G431X"
+    ssn: "MLBYVE53H42G431X",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const travelers = [
     surname: "Ferrari",
     email: "antonio.ferrari@example.com",
     phoneNumber: "+39 345 222 3333",
-    ssn: "ZJMZLB68L67F830C "
+    ssn: "ZJMZLB68L67F830C ",
   },
   {
     id: 6,
@@ -161,7 +161,7 @@ const travelers = [
   },
 ];
 
-console.log(travelers)
+console.log(travelers);
 
 const trips = [
   {
@@ -171,7 +171,7 @@ const trips = [
     endDate: "2025-02-05",
     destination: "Toscana, Italia",
     travelers: [travelers[0], travelers[1]],
-    bg: `url('https://plus.unsplash.com/premium_photo-1675970835839-261d62505450?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+    bg: "https://plus.unsplash.com/premium_photo-1675970835839-261d62505450?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 2,
@@ -180,7 +180,7 @@ const trips = [
     endDate: "2025-07-12",
     destination: "Parigi, Francia",
     travelers: [travelers[2], travelers[3]],
-    bg: "url(https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
+    bg: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 3,
@@ -189,7 +189,7 @@ const trips = [
     endDate: "2025-09-30",
     destination: "Tokyo, Giappone",
     travelers: [travelers[4], travelers[5], travelers[6]],
-    bg: "url(https://plus.unsplash.com/premium_photo-1661902398022-762e88ff3f82?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
+    bg: "https://plus.unsplash.com/premium_photo-1661902398022-762e88ff3f82?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 4,
@@ -198,7 +198,7 @@ const trips = [
     endDate: "2025-11-10",
     destination: "Nairobi, Kenya",
     travelers: [travelers[7], travelers[8], travelers[9]],
-    bg: "url(https://plus.unsplash.com/premium_photo-1664304370557-233bccc0ac85?q=80&w=2079&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
+    bg: "https://plus.unsplash.com/premium_photo-1664304370557-233bccc0ac85?q=80&w=2079&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 5,
@@ -207,9 +207,8 @@ const trips = [
     endDate: "2026-01-05",
     destination: "Sydney, Australia",
     travelers: [travelers[10], travelers[11], travelers[12], travelers[13]],
-    bg: "url(https://www.hostelworld.com/blog/wp-content/uploads/2019/12/travel-east-coast-Australia-Sydney-Getty-Images.jpg)",
+    bg: "https://www.hostelworld.com/blog/wp-content/uploads/2019/12/travel-east-coast-Australia-Sydney-Getty-Images.jpg",
   },
-
 ];
 
 export { travelers, trips };

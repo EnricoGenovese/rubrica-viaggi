@@ -17,7 +17,7 @@ export default function ErrorPage() {
       >
         <h1 className="text-danger fw-bold mt-">ops!</h1>
         <p className="fs-3 fw-bold text-white">Sembra che tu ti sia perso.</p>
-        <Link to={"/"} className="btn btn-primary">
+        <Link to={"/travels"} className="btn btn-dark">
           Torna alla Home
         </Link>
       </div>

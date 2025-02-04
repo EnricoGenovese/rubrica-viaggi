@@ -56,7 +56,7 @@ export default function TravelerInfo() {
             Torna alla Lista Viaggi
           </Link>
           <Link to={`/${currentTripId}`} className="btn btn-dark btn-sm">
-            Torna al viaggio
+            Vai al viaggio
           </Link>
         </div>
       </div>

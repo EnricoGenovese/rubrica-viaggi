@@ -61,14 +61,26 @@ export default function Travels() {
 
   return (
     <>
-      <div className="d-flex align-items-center justify-content-center my-3">
-        <Link to={"/alltravelers"} className="btn btn-dark">
+      <div className="d-flex align-items-center justify-content-center my-3 gap-3">
+        <Link to={"/alltravelers"} className="btn btn-dark btn-sm ">
           Lista completa dei viaggiatori
         </Link>
+        <a
+          href="#form"
+          className="btn btn-dark btn-sm alingn-self-center"
+          style={{ height: "30px" }}
+        >
+          Aggiungi Viaggio
+        </a>
       </div>
       <div className="container mt-5">
         <div className="p-2">
-          <h2 className="fw-bold p-3 text-white" style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}>Viaggi in corso: </h2>
+          <h2
+            className="fw-bold p-3 text-white"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+          >
+            Viaggio in corso:{" "}
+          </h2>
         </div>
         {ongoingTrips.map((trip) => (
           <div
@@ -76,7 +88,7 @@ export default function Travels() {
             key={trip.id}
             style={{
               position: "relative",
-              backgroundImage: trip.bg,
+              backgroundImage: `url(${trip.bg})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               color: "white",
@@ -131,8 +143,12 @@ export default function Travels() {
         ))}
 
         <div className="p-2">
-          <h2 className="fw-bold p-3 text-white" style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
-            Viaggi futuri: </h2>
+          <h2
+            className="fw-bold p-3 text-white"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+          >
+            Viaggi futuri:{" "}
+          </h2>
         </div>
         {futureTrips.map((trip) => (
           <div
@@ -140,7 +156,7 @@ export default function Travels() {
             key={trip.id}
             style={{
               position: "relative",
-              backgroundImage: trip.bg,
+              backgroundImage: `url("${trip.bg}")`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               color: "white",
@@ -209,7 +225,7 @@ export default function Travels() {
         >
           <div>
             <h2>Inserisci un nuovo viaggio</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id="form">
               <div className="mb-2">
                 <label htmlFor="title" className="form-label">
                   Nome del viaggio
@@ -287,8 +303,7 @@ export default function Travels() {
                   required
                 />
               </div>
-
-              <button type="submit" className="btn btn-primary" key={travel.id}>
+              <button type="submit" className="btn btn-dark" key={travel.id}>
                 Pubblica
               </button>
             </form>

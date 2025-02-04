@@ -1,18 +1,19 @@
 main {
-    background-image: url("https://img.freepik.com/vettori-gratuito/sfondo-di-viaggio-realistico-con-elementi_52683-77784.jpg?t=st=1738342548~exp=1738346148~hmac=bfd70ba99fe82156957417995776845c3577e54668516725d99ab782d39ebb0e&w=996");
-    background-size: cover;
-    height: calc(100vh - 50px);
-    /* margin-top: 50px; */
-    overflow-y: scroll;
-    padding-bottom: 50px;
+  background-image: url("https://img.freepik.com/vettori-gratuito/sfondo-di-viaggio-realistico-con-elementi_52683-77784.jpg?t=st=1738342548~exp=1738346148~hmac=bfd70ba99fe82156957417995776845c3577e54668516725d99ab782d39ebb0e&w=996");
+  background-size: cover;
+  height: calc(100vh - 50px);
+  /* margin-top: 50px; */
+  overflow-y: scroll;
+  padding-bottom: 50px;
+  scroll-behavior: smooth;
 }
 
 .debug {
-    border: 1px, solid, red;
+  border: 1px, solid, red;
 }
 
 img {
-    width: 100px;
-    height: 100px;
-    aspect-ratio: 1/3;
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 1/3;
 }
