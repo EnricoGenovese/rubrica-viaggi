@@ -3,7 +3,6 @@ import { trips } from "../model/Data.js";
 import { Link } from "react-router-dom";
 
 export default function Travels() {
-
   const newTravel = {
     id: 0,
     title: "",
@@ -26,7 +25,9 @@ export default function Travels() {
   const ongoingTrips = travelsList.filter((trip) => trip.startDate < today);
   const futureTrips = travelsList.filter((trip) => trip.startDate > today);
 
-  newTravel.id = travelsList.reduce((curr, next) => curr.id < next.id ? next : curr).id + 1;
+  newTravel.id =
+    travelsList.reduce((curr, next) => (curr.id < next.id ? next : curr)).id +
+    1;
 
   function handleTravel(event) {
     const value = event.target.value;
@@ -108,11 +109,18 @@ export default function Travels() {
               </div>
               <div className="my-2 d-flex justify-content-between">
                 <h3>{trip.destination}</h3>
-                <Link to={`/${trip.id}`} className="btn btn-dark btn-sm d-flex align-self-center">
+                <Link
+                  to={`/${trip.id}`}
+                  className="btn btn-dark btn-sm d-flex align-self-center"
+                >
                   Dettagli
                 </Link>
-                <div className="btn btn-danger btn-sm d-flex align-self-center"
-                  onClick={() => { deleteTravel(travel.id) }}>
+                <div
+                  className="btn btn-danger btn-sm d-flex align-self-center"
+                  onClick={() => {
+                    deleteTravel(travel.id);
+                  }}
+                >
                   Cancella
                 </div>
               </div>
@@ -166,11 +174,18 @@ export default function Travels() {
               </div> */}
               <div className="my-2 d-flex justify-content-between">
                 <h3>{trip.destination}</h3>
-                <Link to={`/${trip.id}`} className="btn btn-sm btn-dark d-flex align-self-center">
+                <Link
+                  to={`/${trip.id}`}
+                  className="btn btn-sm btn-dark d-flex align-self-center"
+                >
                   Dettagli
                 </Link>
-                <div className="btn btn-danger btn-sm d-flex align-self-center"
-                  onClick={() => { deleteTravel(travel.id) }}>
+                <div
+                  className="btn btn-danger btn-sm d-flex align-self-center"
+                  onClick={() => {
+                    deleteTravel(travel.id);
+                  }}
+                >
                   Cancella
                 </div>
               </div>
@@ -178,8 +193,15 @@ export default function Travels() {
           </div>
         ))}
       </div>
-      <section className="my-5">
-        <div>
+      <section className="my-5 d-flex justify-content-center align-items-center">
+        <div
+          className="p-4 shadow-lg rounded  text-center text-white"
+          style={{
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            maxWidth: "930px",
+            width: "90%",
+          }}
+        >
           <div>
             <h2>Inserisci un nuovo viaggio</h2>
             <form onSubmit={handleSubmit}>
